@@ -6,6 +6,7 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Illuminate\Database\Eloquent\SoftDeletes;
+use Nnjeim\World\Models\Country;
 
 class UserProfile extends Model
 {
@@ -37,6 +38,15 @@ class UserProfile extends Model
         return $this->belongsTo(User::class, 'user_id', 'id');
     }
 
+    /**
+     * Obtener el país de la tabla paises
+     *
+     * @return \Illuminate\Database\Eloquent\Relations\BelongsTo
+     */
+    public function country(): BelongsTo
+    {
+        return $this->belongsTo(Country::class, 'country_id');
+    }
 
 
 }

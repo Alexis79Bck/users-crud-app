@@ -23,8 +23,8 @@ return new class extends Migration
             $table->date('birthdate')->nullable();
             $table->enum('gender', ['Hombre', 'Mujer', 'No Decirlo']);
             $table->string('phone_number', 15)->nullable();
-            // $table->bigInteger('country_id');
-            $table->foreignId('country_id')->constrained()->onDelete('cascade');
+            $table->unsignedBigInteger('country_id')->nullable();
+            $table->foreign('country_id')->references('id')->on('countries')->onDelete('set null');
             $table->string('avatar')->nullable();
             $table->timestamps();
         });
