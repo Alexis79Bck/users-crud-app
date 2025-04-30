@@ -31,20 +31,20 @@ const submit = () => {
 
 <template>
     <GuestLayout>
-        <Head title="Log in" />
+        <Head title="Inicio de Sesión" />
 
         <div v-if="status" class="mb-4 font-medium text-sm text-green-600">
             {{ status }}
         </div>
 
-        <form @submit.prevent="submit">
+        <form class="" @submit.prevent="submit">
             <div>
-                <InputLabel for="email" value="Email" />
+                <InputLabel  for="email" value="Correo" />
 
                 <TextInput
                     id="email"
                     type="email"
-                    class="mt-1 block w-full"
+                    class="mt-1 block w-full dark:bg-indigo-100 dark:text-blue-700 dark:ring-blue-300 dark:focus:ring-blue-500 dark:focus:border-blue-500"
                     v-model="form.email"
                     required
                     autofocus
@@ -60,7 +60,7 @@ const submit = () => {
                 <TextInput
                     id="password"
                     type="password"
-                    class="mt-1 block w-full"
+                    class="mt-1 block w-full dark:bg-indigo-100 dark:text-blue-700 dark:ring-blue-300 dark:focus:ring-blue-500 dark:focus:border-blue-500"
                     v-model="form.password"
                     required
                     autocomplete="current-password"
@@ -71,8 +71,8 @@ const submit = () => {
 
             <div class="block mt-4">
                 <label class="flex items-center">
-                    <Checkbox name="remember" v-model:checked="form.remember" />
-                    <span class="ms-2 text-sm text-gray-600 dark:text-gray-400">Remember me</span>
+                    <Checkbox class="dark:bg-indigo-100 dark:text-blue-700 dark:ring-blue-300 dark:focus:ring-blue-500 dark:focus:border-blue-500" name="remember" v-model:checked="form.remember" />
+                    <span class="ms-2 text-sm text-gray-600 dark:text-gray-300">Remember me</span>
                 </label>
             </div>
 
@@ -85,7 +85,7 @@ const submit = () => {
                     Forgot your password?
                 </Link>
 
-                <PrimaryButton class="ms-4" :class="{ 'opacity-25': form.processing }" :disabled="form.processing">
+                <PrimaryButton class="ms-4 dark:text-indigo-100 dark:bg-blue-700 dark:hover:bg-indigo-100 dark:hover:text-blue-700 dark:ring-blue-300 dark:focus:ring-blue-500 dark:focus:border-blue-500" :class="{ 'opacity-25': form.processing }" :disabled="form.processing">
                     Log in
                 </PrimaryButton>
             </div>
