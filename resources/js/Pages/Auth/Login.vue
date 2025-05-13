@@ -1,6 +1,6 @@
 <script setup>
+import LoginLayout from '@/Layouts/Auth/LoginLayout.vue';
 import Checkbox from '@/Components/Checkbox.vue';
-import GuestLayout from '@/Layouts/GuestLayout.vue';
 import InputError from '@/Components/InputError.vue';
 import InputLabel from '@/Components/InputLabel.vue';
 import PrimaryButton from '@/Components/PrimaryButton.vue';
@@ -30,21 +30,21 @@ const submit = () => {
 </script>
 
 <template>
-    <GuestLayout>
+    <LoginLayout>
         <Head title="Inicio de Sesión" />
 
         <div v-if="status" class="mb-4 font-medium text-sm text-green-600">
             {{ status }}
         </div>
 
-        <form class="" @submit.prevent="submit">
-            <div>
-                <InputLabel  for="email" value="Correo" />
+        <form @submit.prevent="submit">
+            <div class="mt-2">
+                <InputLabel for="email" value="Correo" />
 
                 <TextInput
                     id="email"
                     type="email"
-                    class="mt-1 block w-full dark:bg-indigo-100 dark:text-blue-700 dark:ring-blue-300 dark:focus:ring-blue-500 dark:focus:border-blue-500"
+                    class="mt-1 block w-full"
                     v-model="form.email"
                     required
                     autofocus
@@ -60,7 +60,7 @@ const submit = () => {
                 <TextInput
                     id="password"
                     type="password"
-                    class="mt-1 block w-full dark:bg-indigo-100 dark:text-blue-700 dark:ring-blue-300 dark:focus:ring-blue-500 dark:focus:border-blue-500"
+                    class="mt-1 block w-full"
                     v-model="form.password"
                     required
                     autocomplete="current-password"
@@ -85,10 +85,10 @@ const submit = () => {
                     Forgot your password?
                 </Link>
 
-                <PrimaryButton class="ms-4 dark:text-indigo-100 dark:bg-blue-700 dark:hover:bg-indigo-100 dark:hover:text-blue-700 dark:ring-blue-300 dark:focus:ring-blue-500 dark:focus:border-blue-500" :class="{ 'opacity-25': form.processing }" :disabled="form.processing">
+                <PrimaryButton class="ms-4 " :class="{ 'opacity-25': form.processing }" :disabled="form.processing">
                     Log in
                 </PrimaryButton>
             </div>
         </form>
-    </GuestLayout>
+    </LoginLayout>
 </template>
