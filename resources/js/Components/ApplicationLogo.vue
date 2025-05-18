@@ -11,5 +11,5 @@ const props = defineProps({
 </script>
 
 <template>
-    <img :src="props.src" alt="Logo" class="w-40 h-40 fill-current" />
+    <img :src="props.src" alt="Logo" class="mt-3 w-50 h-50 text-center" />
 </template>
