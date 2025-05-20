@@ -1,7 +1,4 @@
 <script setup>
-import { defineProps } from 'vue';
-
-
 const props = defineProps({
     src: {
         type: String,
@@ -11,5 +8,5 @@ const props = defineProps({
 </script>
 
 <template>
-    <img :src="props.src" alt="Logo" class="mt-3 w-50 h-50 text-center" />
+    <img :src="props.src" alt="Logo" class="mt-3 w-40 h-40 text-center" />
 </template>
