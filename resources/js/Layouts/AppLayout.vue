@@ -12,10 +12,10 @@
 </template>
 
 <script setup>
-import AppNavbar from '@/components/Dashboard/Navbar.vue'
-import AppSidebar from '@/components/Dashboard/Sidebar.vue'
-import AppHeader from '@/components/Dashboard/Header.vue'
-import AppMainContent from '@/components/Dashboard/MainContent.vue'
-import AppFooter from '@/components/Dashboard/Footer.vue'
-import AppControlSidebar from '@/components/Dashboard/ControlSidebar.vue'
+import AppNavbar from '@/Components/Dashboard/Navbar.vue'
+import AppSidebar from '@/Components/Dashboard/Sidebar.vue'
+import AppHeader from '@/Components/Dashboard/Header.vue'
+import AppMainContent from '@/Components/Dashboard/MainContent.vue'
+import AppFooter from '@/Components/Dashboard/Footer.vue'
+import AppControlSidebar from '@/Components/Dashboard/ControlSidebar.vue'
 </script>

@@ -15,8 +15,8 @@ Route::get('/', function () {
 
 Route::get('/dashboard', function () {
     return Inertia::render('Dashboard');
-})->middleware(['auth', 'verified'])->name('dashboard');
-
+})->name('dashboard');
+//->middleware(['auth', 'verified'])
 /**
  * * Rutas de Perfil de Usuario Logueado
  */
