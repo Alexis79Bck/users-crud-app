@@ -16,14 +16,14 @@
         
         <!-- Scripts -->
         @routes
-        @vite(['resources/js/app.js', "resources/css/app.css", "resources/js/Pages/{$page['component']}.vue"])
+        @vite(['resources/js/app.js', "resources/js/Pages/{$page['component']}.vue"])
         @inertiaHead
     </head>
     <body class="antialiased hold-transition sidebar-mini layout-fixed">
         @inertia
 
-        <script src="{{ asset('assets/vendor/adminlte/plugins/jquery/jquery.min.js') }}"></script>
-        <script src="{{ asset('assets/vendor/adminlte/plugins/bootstrap/js/bootstrap.bundle.min.js') }}"></script>
-        <script src="{{ asset('assets/vendor/adminlte/dist/js/adminlte.min.js') }}"></script>
+        <script src="{{ asset('assets/vendor/AdminLTE3/plugins/jquery/jquery.min.js') }}"></script>
+        <script src="{{ asset('assets/vendor/AdminLTE3/plugins/bootstrap/js/bootstrap.bundle.min.js') }}"></script>
+        <script src="{{ asset('assets/vendor/AdminLTE3/js/adminlte.min.js') }}"></script>
     </body>
 </html>

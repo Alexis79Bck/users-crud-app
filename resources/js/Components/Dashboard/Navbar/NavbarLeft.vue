@@ -7,7 +7,7 @@
 
 <script setup>
 import AppNavbarToggler from './NavbarTogglerButton.vue'
-import AppNavbarLink from './AppNavbarLink.vue'
+import AppNavbarLink from './NavbarLink.vue'
 
 const links = [
   { name: 'Home', url: '/' },
