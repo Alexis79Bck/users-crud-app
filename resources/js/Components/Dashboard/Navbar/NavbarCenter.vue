@@ -1,6 +1,6 @@
 <template>
-    <div class="navbar-brand mx-auto font-weight-bold text-lg">
-       <p class="lead h3 text-navy color-palette"> {{ appName }} - {{ appVersion }}</p>
+    <div class="navbar-brand mx-auto">
+       <p class="lead h4  font-weight-bold text-lg text-navy "> {{ appName }} - {{ appVersion }}</p>
     </div>
 </template>
 
