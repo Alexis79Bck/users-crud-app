@@ -1,5 +1,5 @@
 <template>
-  <ul class="navbar-nav ml-auto">
+  <ul class="navbar-nav ">
     <!-- Búsqueda rápida -->
     <AppNavbarJumpTo />
 
