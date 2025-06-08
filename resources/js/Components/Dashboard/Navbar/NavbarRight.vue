@@ -1,17 +1,22 @@
 <template>
   <ul class="navbar-nav ml-auto">
-    <AppNavbarSearch />
+    <!-- Búsqueda rápida -->
+    <AppNavbarJumpTo />
+
+    <!-- Mensajes -->
     <AppMessageDropdown />
+
+    <!-- Notificaciones -->
     <AppNotificationDropdown />
-    <AppNavbarFullscreenButton />
-    <AppNavbarControlSidebarButton />
+
+    <!-- Menú de usuario -->
+    <AppUserMenu />
   </ul>
 </template>
 
 <script setup>
-import AppNavbarSearch from './NavbarSearch.vue'
+import AppNavbarJumpTo from './NavbarJumpTo.vue'
 import AppMessageDropdown from './NavbarMessageDropdown.vue'
 import AppNotificationDropdown from './NavbarNotificationDropdown.vue'
-import AppNavbarFullscreenButton from './NavbarFullscreenButton.vue'
-import AppNavbarControlSidebarButton from './NavbarControlSidebarButton.vue'
+import AppUserMenu from './NavbarUserMenuDropdown.vue'
 </script>

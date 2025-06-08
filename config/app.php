@@ -20,6 +20,19 @@ return [
 
     /*
     |--------------------------------------------------------------------------
+    | Application Version Number (add by Alexis E. Mata)
+    |--------------------------------------------------------------------------
+    |
+    | This value is the version number of your application. This value is used when the
+    | framework needs to place the application's version number in a notification or
+    | any other location as required by the application or its packages. (Optional)
+    |
+    */
+
+    'version_number' => 'v.' . env('APP_VERSION_NUMBER', '0.0.1_beta'),
+
+    /*
+    |--------------------------------------------------------------------------
     | Application Environment
     |--------------------------------------------------------------------------
     |
