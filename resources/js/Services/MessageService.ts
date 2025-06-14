@@ -1,12 +1,5 @@
-// Define una interfaz para la estructura de un mensaje.
-interface Message {
-  id: number;
-  name: string;
-  avatar: string;
-  text: string;
-  time: string;
-  unread: boolean;
-}
+// Importa la interfaz para la estructura de un mensaje.
+import { Message } from '@/Types/Message';
 
 // Exporta un objeto con métodos, tipando las promesas y sus resultados.
 export default {
@@ -32,7 +25,7 @@ export default {
           avatar: 'dist/img/user8-128x128.jpg', // Asegúrate de que esta ruta sea correcta o dinámica
           text: 'Recibí tu mensaje',
           time: '4 Horas',
-          unread: false
+          unread: true
         },
         {
           id: 3,
