@@ -1,10 +1,5 @@
-// Define una interfaz para la estructura de una notificación.
-interface Notification {
-  id: number;
-  icon: string;
-  title: string;
-  time: string;
-}
+// Importa la interfaz para la estructura de una notificación.
+import { Notification } from '@/Types/Notification';
 
 // Exporta un objeto con métodos, tipando las promesas y sus resultados.
 export default {
@@ -16,12 +11,11 @@ export default {
     return new Promise(resolve => {
       // Simula un retardo de red
       setTimeout(() => resolve([
-        { id: 1, icon: 'fas fa-envelope', title: '4 nuevos mensajes', time: '3 mins' },
-        { id: 2, icon: 'fas fa-users', title: '8 solicitudes', time: '12 horas' },
-        { id: 3, icon: 'fas fa-file', title: '3 informes nuevos', time: '2 días' },
-        { id: 4, icon: 'fas fa-exclamation-triangle', title: 'Advertencia del sistema', time: '1 hora' },
-        { id: 5, icon: 'fas fa-check-circle', title: 'Copia de seguridad completa', time: 'Ayer' },
-        { id: 6, icon: 'fas fa-cloud-upload-alt', title: 'Actualización disponible', time: '5 días' }
+        { id: 1, icon: 'fas fa-envelope', title: '4 Nuevos Comentarios', type: 'Comentario', isRead: false, time: '3 mins' },
+        { id: 2, icon: 'fas fa-users', title: '8 Nuevas Solicitudes', type: 'Solicitud', isRead: false, time: '12 horas' },
+        { id: 3, icon: 'fas fa-eye', title: '3 Usuarios visistaron tu perfil', type: 'Visita', isRead: false, time: '2 días' },
+        { id: 4, icon: 'fas fa-gears', title: 'Sistema', type: 'Sistema', isRead: false, time: '1 hora' },
+        { id: 5, icon: 'fas fa-gears', title: 'Sistema', type: 'Sistema', isRead: false, time: '1 hora' },
       ]), 500);
     });
   }
