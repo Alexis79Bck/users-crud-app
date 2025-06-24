@@ -1,5 +1,5 @@
 <template>
-  <nav class="main-header navbar navbar-expand navbar-lightblue navbar-light">
+  <nav class="main-header  elevation-3 navbar navbar-expand navbar-lightblue navbar-light">
     <AppNavbarLeft />
     <AppNavbarCenter :app-name="appName" :app-version="appVersion"/>
     <AppNavbarRight />

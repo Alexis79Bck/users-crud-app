@@ -8,5 +8,5 @@ const props = defineProps({
 </script>
 
 <template>
-    <img :src="props.src" alt="Logo" class="mt-3 w-40 h-40 text-center" />
+    <img :src="props.src" alt="Logo" class="w-48 h-48 text-center" />
 </template>

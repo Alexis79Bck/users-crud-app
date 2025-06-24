@@ -1,39 +1,27 @@
 <template>
-  <a
-    v-if="item.as === 'button'"
-    :class="['nav-link', { active: isActive }]"
-    href="#"
-    @click.prevent="$emit('logout')"
+  <Link
+    :href="item.routeName ? route(item.routeName) : (item.href || '#')"
+    :method="item.method || 'get'"
+    :as="item.as || 'a'"
+    :class="['nav-link', { 'active': isActive }]"
   >
-    <i :class="item.icon" class="nav-icon"></i>
-    <p>{{ item.label }}</p>
-  </a>
-  <router-link
-    v-else
-    :to="{ name: item.routeName }"
-    :class="['nav-link', { active: isActive }]"
-  >
-    <i :class="item.icon" class="nav-icon"></i>
+    <i class="nav-icon" :class="item.icon"></i>
     <p>
       {{ item.label }}
-      <span v-if="item.badge" :class="['right', 'badge', item.badge.class]">{{ item.badge.text }}</span>
+      <span v-if="item.badge" :class="['right badge', item.badge.class]">{{ item.badge.text }}</span>
     </p>
-  </router-link>
+  </Link>
 </template>
 
 <script setup lang="ts">
-import { defineProps } from 'vue';
-import { LinkMenuItem } from '@/Types/Sidebar';
+import { Link } from '@inertiajs/vue3';
+import { LinkMenuItem } from '@/Types/Sidebar'; // Importa el tipo específico para enlaces
 
-defineProps<{
-  item: LinkMenuItem,
-  isActive: boolean
-}>();
-</script>
-
-<style scoped>
-.nav-link.active {
-  background-color: #007bff;
-  color: #fff;
+// Definición de Props para SidebarLink
+interface SidebarLinkProps {
+  item: LinkMenuItem; // Este componente solo recibe ítems de tipo 'link'
+  isActive: boolean; // Si este ítem está actualmente activo
 }
-</style>
+
+defineProps<SidebarLinkProps>();
+</script>

@@ -16,6 +16,10 @@ export function getSidebarMenu(): SidebarMenuItem[] {
       isActive: (componentName: string) => componentName === 'Dashboard',
     },
     {
+      type: 'header',
+      label: 'PROCESOS',
+    },
+    {
       type: 'link',
       label: 'Usuarios',
       icon: 'fas fa-users',
@@ -23,8 +27,19 @@ export function getSidebarMenu(): SidebarMenuItem[] {
       isActive: (componentName: string) => componentName.startsWith('Users/'),
     },
     {
+      type: 'link',
+      label: 'Posts',
+      icon: 'fas fa-newspaper',
+      routeName: 'posts.index',
+      isActive: (componentName: string) => componentName.startsWith('Users/'),
+    },
+    {
+      type: 'header',
+      label: 'CONFIGURACION DE SISTEMA',
+    },
+    {
       type: 'treeview',
-      label: 'Administración',
+      label: 'Sistema',
       icon: 'fas fa-cogs',
       children: [
         {
@@ -54,79 +69,79 @@ export function getSidebarMenu(): SidebarMenuItem[] {
         componentName.startsWith('Roles/') ||
         componentName.startsWith('Permissions/'),
     },
-    {
-      type: 'link',
-      label: 'Reportes',
-      icon: 'fas fa-chart-line',
-      routeName: 'reports.index',
-      isActive: (componentName: string) => componentName === 'Reports/Index',
-    },
-    {
-      type: 'header',
-      label: 'EJEMPLOS',
-    },
-    {
-      type: 'link',
-      label: 'Calendario',
-      icon: 'far fa-calendar-alt',
-      routeName: 'calendar.index',
-      badge: { text: '2', class: 'badge-info' },
-      isActive: (componentName: string) => componentName === 'Calendar/Index',
-    },
-    {
-      type: 'link',
-      label: 'Galería',
-      icon: 'far fa-image',
-      routeName: 'gallery.index',
-      isActive: (componentName: string) => componentName === 'Gallery/Index',
-    },
-    {
-      type: 'link',
-      label: 'Kanban Board',
-      icon: 'fas fa-columns',
-      routeName: 'kanban.index',
-      isActive: (componentName: string) => componentName === 'Kanban/Index',
-    },
-    {
-      type: 'treeview',
-      label: 'Mailbox',
-      icon: 'far fa-envelope',
-      children: [
-        {
-          type: 'link',
-          label: 'Inbox',
-          icon: 'far fa-circle',
-          routeName: 'mailbox.inbox',
-          isActive: (componentName: string) => componentName === 'Mailbox/Inbox',
-        },
-        {
-          type: 'link',
-          label: 'Compose',
-          icon: 'far fa-circle',
-          routeName: 'mailbox.compose',
-          isActive: (componentName: string) => componentName === 'Mailbox/Compose',
-        },
-        {
-          type: 'link',
-          label: 'Read',
-          icon: 'far fa-circle',
-          routeName: 'mailbox.read',
-          isActive: (componentName: string) => componentName === 'Mailbox/Read',
-        },
-      ],
-      isActive: (componentName: string) => componentName.startsWith('Mailbox/'),
-    },
-    {
-      type: 'header',
-      label: 'ETIQUETAS',
-    },
-    {
-      type: 'link',
-      label: 'Importante',
-      icon: 'far fa-circle text-danger',
-      routeName: '#', // Ejemplo de enlace que no lleva a una ruta real de Inertia
-      isActive: (componentName: string) => false,
-    },
+    // {
+    //   type: 'link',
+    //   label: 'Reportes',
+    //   icon: 'fas fa-chart-line',
+    //   routeName: 'reports.index',
+    //   isActive: (componentName: string) => componentName === 'Reports/Index',
+    // },
+    // {
+    //   type: 'header',
+    //   label: 'EJEMPLOS',
+    // },
+    // {
+    //   type: 'link',
+    //   label: 'Calendario',
+    //   icon: 'far fa-calendar-alt',
+    //   routeName: 'calendar.index',
+    //   badge: { text: '2', class: 'badge-info' },
+    //   isActive: (componentName: string) => componentName === 'Calendar/Index',
+    // },
+    // {
+    //   type: 'link',
+    //   label: 'Galería',
+    //   icon: 'far fa-image',
+    //   routeName: 'gallery.index',
+    //   isActive: (componentName: string) => componentName === 'Gallery/Index',
+    // },
+    // {
+    //   type: 'link',
+    //   label: 'Kanban Board',
+    //   icon: 'fas fa-columns',
+    //   routeName: 'kanban.index',
+    //   isActive: (componentName: string) => componentName === 'Kanban/Index',
+    // },
+    // {
+    //   type: 'treeview',
+    //   label: 'Mailbox',
+    //   icon: 'far fa-envelope',
+    //   children: [
+    //     {
+    //       type: 'link',
+    //       label: 'Inbox',
+    //       icon: 'far fa-circle',
+    //       routeName: 'mailbox.inbox',
+    //       isActive: (componentName: string) => componentName === 'Mailbox/Inbox',
+    //     },
+    //     {
+    //       type: 'link',
+    //       label: 'Compose',
+    //       icon: 'far fa-circle',
+    //       routeName: 'mailbox.compose',
+    //       isActive: (componentName: string) => componentName === 'Mailbox/Compose',
+    //     },
+    //     {
+    //       type: 'link',
+    //       label: 'Read',
+    //       icon: 'far fa-circle',
+    //       routeName: 'mailbox.read',
+    //       isActive: (componentName: string) => componentName === 'Mailbox/Read',
+    //     },
+    //   ],
+    //   isActive: (componentName: string) => componentName.startsWith('Mailbox/'),
+    // },
+    // {
+    //   type: 'header',
+    //   label: 'ETIQUETAS',
+    // },
+    // {
+    //   type: 'link',
+    //   label: 'Importante',
+    //   icon: 'far fa-circle text-danger',
+    //   routeName: '#', // Ejemplo de enlace que no lleva a una ruta real de Inertia
+    //   isActive: (componentName: string) => false,
+    // },
     {
       type: 'link',
       label: 'Cerrar Sesión',

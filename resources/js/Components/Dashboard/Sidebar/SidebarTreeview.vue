@@ -1,34 +1,36 @@
 <template>
-  <div :class="['nav-item', { 'menu-open': isActive }]">
-    <a href="#" class="nav-link" :class="{ active: isActive }">
-      <i :class="item.icon" class="nav-icon"></i>
-      <p>
-        {{ item.label }}
-        <i class="right fas fa-angle-left"></i>
-      </p>
-    </a>
-    <ul class="nav nav-treeview">
-      <li v-for="child in item.children" :key="child.label" class="nav-item">
-        <SidebarLink :item="child" :is-active="child.isActive" />
+  <a href="#" class="nav-link" :class="{'active': isActive}">
+    <i class="nav-icon" :class="item.icon"></i>
+    <p>
+      {{ item.label }}
+      <i class="right fas fa-angle-left"></i>
+      <span v-if="item.badge" :class="['badge right', item.badge.class]">{{ item.badge.text }}</span>
+    </p>
+  </a>
+  <ul class="nav nav-treeview">
+    <li v-for="(child, childIndex) in item.children" :key="childIndex" class="nav-item">
+      <SidebarLink
+        v-if="child.type === 'link'"
+        :item="child"
+        :is-active="child.isActive($page.component)"
+      />
       </li>
-    </ul>
-  </div>
+  </ul>
 </template>
 
 <script setup lang="ts">
-import { defineProps } from 'vue';
+import { usePage } from '@inertiajs/vue3';
 import SidebarLink from './SidebarLink.vue';
-import { TreeviewMenuItem } from '@/Types/Sidebar';
+// import SidebarTreeview from './SidebarTreeview.vue'; // Para recursividad, descomentar aquí
+import { TreeviewMenuItem, SidebarMenuItem } from '@/Types/Sidebar'; // Importa los tipos
 
-defineProps<{
-  item: TreeviewMenuItem,
-  isActive: boolean
-}>();
-</script>
-
-<style scoped>
-.menu-open > .nav-link {
-  background-color: #343a40;
-  color: #fff;
+// Definición de Props para SidebarTreeview
+interface SidebarTreeviewProps {
+  item: TreeviewMenuItem; // Este componente solo recibe ítems de tipo 'treeview'
+  isActive: boolean; // Si este treeview está actualmente activo (abierto)
 }
-</style>
+
+defineProps<SidebarTreeviewProps>();
+
+const page = usePage(); // Necesario para que los hijos evalúen su propio estado activo
+</script>

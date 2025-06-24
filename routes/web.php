@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\PageController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\User\UserProfileController;
 use App\Http\Controllers\User\UserController;
@@ -9,14 +10,20 @@ use Inertia\Inertia;
 
 
 
-Route::get('/', function () {
-    return Inertia::render('Auth/Login');
-});
+// Route::get('/', function () {
+//     return Inertia::render('Auth/Login');
+// });
 
-Route::get('/dashboard', function () {
-    return Inertia::render('Dashboard');
-})->name('dashboard');
+// Route::get('/dashboard', function () {
+//     return Inertia::render('Dashboard');
+// })->name('dashboard');
 //->middleware(['auth', 'verified'])
+
+Route::get('/', [PageController::class, 'login'] )->name('login');
+
+Route::get('/dashboard', [PageController::class, 'dashboard'])->name('dashboard');
+Route::get('/users', [PageController::class, 'usersIndex'])->name('users.index');
+
 /**
  * * Rutas de Perfil de Usuario Logueado
  */

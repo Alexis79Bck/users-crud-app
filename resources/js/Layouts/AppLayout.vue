@@ -2,6 +2,7 @@
   <div class="wrapper">
     <AppNavbar :app-name="appName" :app-version="appVersion" />
     <!-- <AppSidebar /> -->
+    <AppSidebar />
     <div class="content-wrapper">
       <!-- <AppHeader /> -->
       <!-- <AppMainContent /> -->
@@ -14,7 +15,7 @@
 import { ref } from 'vue'
 
 import AppNavbar from '@/Components/Dashboard/Navbar.vue'
-// import AppSidebar from '@/Components/Dashboard/Sidebar.vue'
+import AppSidebar from '@/Components/Dashboard/Sidebar.vue'
 // import AppHeader from '@/Components/Dashboard/Header.vue'
 //import AppMainContent from '@/Components/Dashboard/MainContent.vue'
 //import AppFooter from '@/Components/Dashboard/Footer.vue'

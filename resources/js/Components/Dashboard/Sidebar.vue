@@ -1,25 +1,30 @@
 <template>
-  <aside class="main-sidebar sidebar-dark-primary elevation-4">
-    <AppSidebarBrand />
+  <aside class="main-sidebar bg-lightblue sidebar-light-primary elevation-4">
+    <SidebarBrand />
 
     <div class="sidebar">
-      <AppSidebarUserPanel />
+      <!-- <SidebarUserInfo />
 
-      <AppSidebarSearchForm />
+      <SidebarSearchForm /> -->
 
-      <!-- Pasamos los ítems del menú desde el composable -->
-      <AppSidebarMenu :menu-items="sidebarMenuItems" :loading="loadingSidebar" :error="errorSidebar" />
+      <SidebarMenu
+        :menu-items="sidebarMenuItems"
+        :loading="loadingSidebar"
+        :error="errorSidebar"
+        :is-item-active="isItemActive"
+        :is-treeview-open="isTreeviewOpen"
+      />
     </div>
-  </aside>
+    </aside>
 </template>
 
 <script setup lang="ts">
-import AppSidebarBrand from '@/Components/Dashboard/Sidebar/SidebarBrand.vue';
-import AppSidebarUserPanel from '@/Components/Dashboard/Sidebar/SidebarUserInfo.vue';
-import AppSidebarSearchForm from '@/Components/Dashboard/Sidebar/SidebarSearchForm.vue';
-import AppSidebarMenu from '@/Components/Dashboard/Sidebar/SidebarMenu.vue';
+import SidebarBrand from '@/Components/Dashboard/Sidebar/SidebarBrand.vue';
+import SidebarUserInfo from '@/Components/Dashboard/Sidebar/SidebarUserInfo.vue';
+import SidebarSearchForm from '@/Components/Dashboard/Sidebar/SidebarSearchForm.vue';
+import SidebarMenu from '@/Components/Dashboard/Sidebar/SidebarMenu.vue';
 import { useSidebar } from '@/Composables/useSidebar';
 
-// Usamos el composable para manejar el estado del sidebar
-const { sidebarMenuItems, loadingSidebar, errorSidebar } = useSidebar();
+// Obtenemos los ítems del menú y la lógica de activación del composable
+const { sidebarMenuItems, loadingSidebar, errorSidebar, isItemActive, isTreeviewOpen } = useSidebar();
 </script>
