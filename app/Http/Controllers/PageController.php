@@ -19,11 +19,11 @@ class PageController extends Controller
 
     public function usersIndex()
     {
-        return Inertia::render('Auth/Login');
+        return Inertia::render(component: 'Users/Index');
     }
 
     public function postsIndex()
     {
-        return Inertia::render('Auth/Login');
+        return Inertia::render(component: 'Posts/Index');
     }
 }

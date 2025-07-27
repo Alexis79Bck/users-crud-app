@@ -25,25 +25,13 @@
 <script setup lang="ts">
 import { computed } from 'vue';
 import { Link, usePage } from '@inertiajs/vue3';
+import { AuthUser } from '@/Types/AuthUser';
 
-// Accedemos al objeto $page de Inertia para obtener las props
 const page = usePage();
 
-// Propiedades computadas para acceder a los datos del usuario de forma reactiva
-// Estos datos ahora vienen directamente de props.initialPage.props.auth.user inyectados en app.js
-const userName = computed(() => page.props.auth.user?.name || 'Invitado');
-const userEmail = computed(() => page.props.auth.user?.email || '');
-const userRole = computed(() => page.props.auth.user?.role || ''); // Asume que tienes una propiedad 'role' en tu modelo User
+const user = computed<AuthUser | undefined>(() => page.props.auth?.user);
 
-// Propiedad computada para la URL del avatar
-const userAvatar = computed(() => {
-    console.log(page.props.auth.user?.avatar_url);
-    
-    // Si el usuario tiene una propiedad 'avatar_url' (por ejemplo, generada en el backend)
-    if (page.props.auth.user?.avatar_url) {
-        return page.props.auth.user.avatar_url;
-    }
-    // Si no tiene avatar o es nulo, usa una imagen por defecto
-    return '/assets/images/default-avatar.png'; // Asegúrate de que esta ruta sea correcta y exista
-});
+const userName = computed(() => user.value?.name || 'Invitado');
+const userRole = computed(() => user.value?.role || '');
+const userAvatar = computed(() => user.value?.avatar_url || '/assets/images/default-avatar.png');
 </script>

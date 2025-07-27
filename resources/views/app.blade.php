@@ -12,7 +12,7 @@
     <link href="https://fonts.bunny.net/css?family=figtree:400,500,600&display=swap" rel="stylesheet" />
 
     <!-- Styles -->
-    <link rel="stylesheet" href="{{ asset('assets/vendor/AdminLTE3/css/adminlte.min.css') }}">
+    {{-- <link rel="stylesheet" href="{{ asset('assets/vendor/AdminLTE3/css/adminlte.min.css') }}"> --}}
     <link rel="stylesheet" href="{{ asset('assets/vendor/AdminLTE3/plugins/fontawesome-free/css/all.min.css') }}">
 
     <!-- Scripts -->
@@ -22,6 +22,7 @@
 </head>
 
 <body class="antialiased hold-transition sidebar-mini layout-fixed">
+    {{-- <div class="wrapper"> --}}
     @inertia
 
     <script type="text/javascript">

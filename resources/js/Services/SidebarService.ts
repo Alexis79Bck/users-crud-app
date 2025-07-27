@@ -31,7 +31,7 @@ export function getSidebarMenu(): SidebarMenuItem[] {
       label: 'Posts',
       icon: 'fas fa-newspaper',
       routeName: 'posts.index',
-      isActive: (componentName: string) => componentName.startsWith('Users/'),
+      isActive: (componentName: string) => componentName.startsWith('Post/'),
     },
     {
       type: 'header',

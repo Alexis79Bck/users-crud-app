@@ -1,6 +1,5 @@
 <script setup>
-import { computed, onMounted, onUnmounted, wat.0
-    ch } from 'vue';
+import { computed, onMounted, onUnmounted, watch } from 'vue';
 
 const props = defineProps({
     show: {

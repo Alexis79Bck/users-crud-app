@@ -1,0 +1,31 @@
+<?php
+
+use Illuminate\Database\Migrations\Migration;
+use Illuminate\Database\Schema\Blueprint;
+use Illuminate\Support\Facades\Schema;
+
+return new class extends Migration {
+    /**
+     * Run the migrations.
+     */
+    public function up(): void
+    {
+        Schema::create('settings', function (Blueprint $table) {
+            $table->id();
+            $table->string('key')->unique(); // 'app_name', 'theme_color', 'allow_registration'
+            $table->text('value')->nullable(); // Valor de la configuración (puede ser JSON para estructuras complejas)
+            $table->string('type')->default('string'); // 'string', 'boolean', 'integer', 'json', 'enum'
+            $table->string('group')->nullable(); // 'general', 'appearance', 'users', 'content'
+            $table->text('description')->nullable(); // Descripción para el panel de administración
+            $table->timestamps();
+        });
+    }
+
+    /**
+     * Reverse the migrations.
+     */
+    public function down(): void
+    {
+        Schema::dropIfExists('settings');
+    }
+};

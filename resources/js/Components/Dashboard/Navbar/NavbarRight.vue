@@ -9,6 +9,9 @@
     <!-- Notificaciones -->
     <AppNotificationDropdown />
 
+    <!-- selector de Tema Claro Oscuro -->
+    <ThemeSwitcher />
+
     <!-- Menú de usuario -->
     <AppUserMenu />
   </ul>
@@ -19,4 +22,5 @@ import AppNavbarJumpTo from './NavbarJumpTo.vue'
 import AppMessageDropdown from './NavbarMessageDropdown.vue'
 import AppNotificationDropdown from './NavbarNotificationDropdown.vue'
 import AppUserMenu from './NavbarUserMenuDropdown.vue'
+import ThemeSwitcher from '@/Components/UI/ThemeSwitcher.vue'
 </script>

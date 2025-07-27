@@ -23,6 +23,7 @@ Route::get('/', [PageController::class, 'login'] )->name('login');
 
 Route::get('/dashboard', [PageController::class, 'dashboard'])->name('dashboard');
 Route::get('/users', [PageController::class, 'usersIndex'])->name('users.index');
+Route::get('/posts', [PageController::class, 'postsIndex'])->name('posts.index');
 
 /**
  * * Rutas de Perfil de Usuario Logueado

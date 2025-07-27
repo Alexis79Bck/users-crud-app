@@ -1,8 +1,8 @@
 <template>
-  <div class="wrapper">
+  <div class="wrapper ">
     <AppNavbar :app-name="appName" :app-version="appVersion" />
     <!-- <AppSidebar /> -->
-    <AppSidebar />
+    <!-- <AppSidebar /> -->
     <div class="content-wrapper">
       <!-- <AppHeader /> -->
       <!-- <AppMainContent /> -->

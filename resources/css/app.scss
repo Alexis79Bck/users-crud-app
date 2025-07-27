@@ -1,0 +1,65 @@
+// =============================================================================
+// 1. IMPORTACIONES DE LIBRERÍAS EXTERNAS Y ABSTRACCIONES
+// =============================================================================
+
+
+
+// Importa los archivos SCSS con la lógica de temas en el orden correcto:
+// a) _colors-base: Define los colores primarios (hexadecimales).
+@use "colors-base" as *;
+// b) _palettes-themes: Define los mapas de paletas y el mixin @apply-theme-colors.
+@use "palettes-themes" as *;
+// c) _themes-schemes: Aplica las paletas a las variables CSS en :root y para las clases de tema personalizadas.
+@use "themes-schemes" as *;
+
+// Primero, estilos de librerías externas como AdminLTE
+@import "adminlte.css";
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+// =============================================================================
+// 2. ESTILOS DE COMPONENTES Y UTILIDADES PERSONALIZADAS
+// =============================================================================
+
+// Aquí irían tus propios estilos de componentes o utilidades si los tienes.
+// Estos estilos deben hacer uso de las variables CSS globales definidas en _themes-schemes.scss
+// para ser reactivos al cambio de tema.
+
+/* Clases base para usar variables CSS en tu app */
+.app-bg {
+  background-color: var(--color-bg);
+  color-scheme: light dark; /* Mantener esto en un elemento global si es necesario */
+}
+
+.app-text {
+  color: var(--color-text);
+}
+
+.bg-primary-app { /* Renombrado para evitar conflicto con Tailwind/AdminLTE si existen */
+  background-color: var(--color-primary);
+}
+
+.text-primary-app { /* Renombrado */
+  color: var(--color-primary);
+}
+
+.bg-secondary-app { /* Renombrado */
+  background-color: var(--color-secondary);
+}
+
+.text-secondary-app { /* Renombrado */
+  color: var(--color-secondary);
+}
+
+.border-default-app { /* Renombrado */
+  border-color: var(--color-border);
+}
+
+.surface-app { /* Renombrado */
+  background-color: var(--color-surface);
+  border-color: var(--color-border);
+  color: var(--color-text);
+  /* Puedes añadir sombra, bordes redondeados, etc. */
+}

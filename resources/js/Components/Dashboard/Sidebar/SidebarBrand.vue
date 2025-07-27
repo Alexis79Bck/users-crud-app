@@ -17,12 +17,8 @@
 <script setup lang="ts">
 import { computed, inject } from 'vue';
 import { Link } from '@inertiajs/vue3';
-import ApplicationLogo from '@/Components/ApplicationLogo.vue';
+import ApplicationLogo from '../../ApplicationLogo.vue';
 
-const appName = computed(() => import.meta.env.VITE_APP_NAME || 'USER-POSTS'); 
+const appName = computed(() => import.meta.env.APP_LOGO_NAME || 'USERS POSTS'); 
 const isSidebarCollapsed = inject<boolean>('sidebarCollapsed', false);
 </script>
-
-<style scoped>
-
-</style>

@@ -1,5 +1,5 @@
 <template>
-  <aside class="main-sidebar bg-lightblue sidebar-light-primary elevation-4">
+  <aside class="main-sidebar bg-ghost-white text-black-pearl">
     <SidebarBrand />
 
     <div class="sidebar">

@@ -1,5 +1,5 @@
 import './bootstrap';
-import '../css/app.css';
+import '../css/app.scss';
 
 import { createApp, h } from 'vue';
 import { createInertiaApp } from '@inertiajs/vue3';
@@ -24,7 +24,6 @@ createInertiaApp({
         // en la carga inicial de la página tras una autenticación exitosa.
         props.initialPage.props.auth = { user: simulatedUser };
 
-        console.log('Inertia props.auth.user simulado (directamente inyectado):', props.initialPage.props.auth.user);
         // --- FIN LÓGICA DE SIMULACIÓN DE AUTENTICACIÓN ---
         return createApp({ render: () => h(App, props) })
             .use(plugin)

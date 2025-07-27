@@ -1,0 +1,56 @@
+/*
+  ──────────────────────────────────────────────────────────────
+  tsconfig.json - Configuración de TypeScript para Vue 3 + Vite
+  ──────────────────────────────────────────────────────────────
+  - Target moderno (ESNext) y módulos ESNext para soporte de import.meta.env
+  - Alias @ para imports limpios desde resources/js
+  - Soporte para archivos .ts, .js y .vue
+  - Strict mode y opciones recomendadas para robustez
+  - Integración con Inertia.js y Node.js para tipos globales
+  - Excluye node_modules, vendor, public y bootstrap
+  - Incluye opciones para Volar/Vetur (Vue 3)
+  ──────────────────────────────────────────────────────────────
+*/
+{
+  "compilerOptions": {
+    "target": "ESNext",
+    "module": "ESNext",
+    "moduleResolution": "Node",
+    "allowJs": true,
+    "checkJs": false,
+    "jsx": "preserve",
+    "baseUrl": ".",
+    "paths": {
+      "@/*": ["resources/js/*"],
+      "ziggy-js": ["./vendor/tightenco/ziggy"]
+    },
+    "strict": true,
+    "esModuleInterop": true,
+    "skipLibCheck": true,
+    "forceConsistentCasingInFileNames": true,
+    "lib": ["ESNext", "DOM"],
+    "isolatedModules": true,
+    "noEmit": true,
+    "resolveJsonModule": true,
+    "types": [
+      "node",
+      "@inertiajs/vue3"
+    ]
+  },
+  "include": [
+    "resources/js/**/*.ts",
+    "resources/js/**/*.d.ts",
+    "resources/js/**/*.vue",
+    "resources/js/**/*.js"
+  ],
+  "exclude": [
+    "node_modules",
+    "bootstrap",
+    "vendor",
+    "public"
+  ],
+  "vueCompilerOptions": {
+    "target": 3,
+    "jsx": "preserve"
+  }
+}

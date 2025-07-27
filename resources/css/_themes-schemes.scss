@@ -1,0 +1,65 @@
+@use 'sass:map';
+
+// =============================================================================
+// IMPORTACIONES
+// Importa los colores base y las definiciones de paletas de temas.
+// =============================================================================
+//@import 'colors-base';    // Contiene $dr-white, $charcoal, etc.
+//@import 'palettes-themes';// Contiene $default-light-palette, $serenity-natural-light-palette, etc., y el mixin @apply-theme-colors.
+@use 'colors-base' as *;
+@use 'palettes-themes' as *;
+
+// =============================================================================
+// CONFIGURACIÓN GLOBAL DE ESQUEMA DE COLOR Y VARIABLES CSS PREDETERMINADAS
+// =============================================================================
+// La pseudo-clase :root apunta al elemento <html>.
+// color-scheme: light dark; le dice al navegador que el sitio soporta ambos modos,
+// habilitando el comportamiento nativo de light-dark().
+:root {
+  color-scheme: light dark;
+
+  // Define las variables CSS globales usando light-dark().
+  // Estas variables tomarán el valor de $default-light-palette o $default-dark-palette
+  // automáticamente, basándose en la preferencia del sistema operativo del usuario.
+  --color-bg: light-dark(#{map.get($default-light-palette, --color-bg)}, #{map.get($default-dark-palette, --color-bg)});
+  --color-text: light-dark(#{map.get($default-light-palette, --color-text)}, #{map.get($default-dark-palette, --color-text)});
+  --color-primary: light-dark(#{map.get($default-light-palette, --color-primary)}, #{map.get($default-dark-palette, --color-primary)});
+  --color-secondary: light-dark(#{map.get($default-light-palette, --color-secondary)}, #{map.get($default-dark-palette, --color-secondary)});
+  --color-accent: light-dark(#{map.get($default-light-palette, --color-accent)}, #{map.get($default-dark-palette, --color-accent)});
+  --color-surface: light-dark(#{map.get($default-light-palette, --color-surface)}, #{map.get($default-dark-palette, --color-surface)});
+  --color-border: light-dark(#{map.get($default-light-palette, --color-border)}, #{map.get($default-dark-palette, --color-border)});
+  --color-link: light-dark(#{map.get($default-light-palette, --color-link)}, #{map.get($default-dark-palette, --color-link)});
+}
+
+// =============================================================================
+// SOBREESCRITURA PARA TEMAS PERSONALIZADOS
+// Estas reglas se activan cuando JavaScript añade una clase específica al elemento <html>.
+// Tienen mayor especificidad que :root, sobrescribiendo las variables CSS.
+// =============================================================================
+
+// --- Esquema Personalizado 1: "Serenidad Natural" ---
+html.theme-serenity-natural-light {
+  @include apply-theme-colors($serenity-natural-light-palette);
+}
+
+html.theme-serenity-natural-dark {
+  @include apply-theme-colors($serenity-natural-dark-palette);
+}
+
+// --- Esquema Personalizado 2: "Atardecer Cálido" ---
+html.theme-warm-dusk-light {
+  @include apply-theme-colors($warm-dusk-light-palette);
+}
+
+html.theme-warm-dusk-dark {
+  @include apply-theme-colors($warm-dusk-dark-palette);
+}
+
+// --- Esquema Personalizado 3: "Espacio Profundo" ---
+html.theme-deep-space-light {
+  @include apply-theme-colors($deep-space-light-palette);
+}
+
+html.theme-deep-space-dark {
+  @include apply-theme-colors($deep-space-dark-palette);
+}

@@ -1,0 +1,265 @@
+/*------------------------------------------------------------------------------
+  themes.scss - Sistema dinámico de temas para Laravel + Vue + AdminLTE
+  - Define variables CSS semánticas para temas claros, oscuros y personalizados
+  - Permite cambiar tema dinámicamente aplicando clases como .theme-light, .theme-dark, etc.
+  - Se integra como override sobre los estilos estáticos de AdminLTE
+------------------------------------------------------------------------------*/
+
+/*-----------------------------
+  Soporte preferencia sistema
+------------------------------*/
+:root {
+  /* Indica que el sitio soporta ambos esquemas claros y oscuros */
+  color-scheme: light dark;
+}
+
+/*------------------------------------------------
+  Paleta base personalizada: DARK y LIGHT (4 colores)
+-------------------------------------------------*/
+$palette-dark: (
+  black-plum:    #362B32,
+  black-pearl:   #20272C,
+  deep-gray:     #303537,
+  midnight-green:#181F20
+);
+
+$palette-light: (
+  ivory-myst:    #F0EDE9,
+  calm-water:    #E7FBF9,
+  ghost-white:   #F8F8FF,
+  cold-white:    #EFFEFB
+);
+
+/*---------------------------------------------------------
+  Asignación semántica de colores para temas personalizados
+  - primary, secondary, accent, background, text, border, etc.
+----------------------------------------------------------*/
+
+// Tema Light base
+$theme-light-colors: (
+  primary:       #007bff,                   // Azul Bootstrap (puedes personalizar)
+  secondary:     map.get($palette-light, calm-water),
+  accent:        #e83e8c,                   // Color rosa para acentos
+  background:    map.get($palette-light, ivory-myst),
+  text:          map.get($palette-dark, deep-gray),
+  border:        map.get($palette-light, calm-water),
+  surface:       map.get($palette-light, ghost-white)
+);
+
+// Tema Dark base
+$theme-dark-colors: (
+  primary:       #1e90ff,                   // Azul más brillante para dark
+  secondary:     map.get($palette-dark, black-pearl),
+  accent:        #e83e8c,
+  background:    map.get($palette-dark, midnight-green),
+  text:          map.get($palette-light, cold-white),
+  border:        map.get($palette-dark, black-plum),
+  surface:       map.get($palette-dark, black-plum)
+);
+
+/*----------------------------------------------------------
+  Otros temas personalizados que quieras añadir
+  Puedes extender $themes con tantos mapas como quieras
+-----------------------------------------------------------*/
+$theme-solarized-light: (
+  primary:       #268bd2,
+  secondary:     #2aa198,
+  accent:        #b58900,
+  background:    #fdf6e3,
+  text:          #657b83,
+  border:        #eee8d5,
+  surface:       #eee8d5
+);
+
+$theme-solarized-dark: (
+  primary:       #2aa198,
+  secondary:     #268bd2,
+  accent:        #b58900,
+  background:    #002b36,
+  text:          #93a1a1,
+  border:        #073642,
+  surface:       #073642
+);
+
+/* ----------------------------------------
+  Temas personalizados basados en combinaciones
+-------------------------------------------*/
+
+// Gray & Ghost White - Claro
+$theme-gray-ghost-white: (
+  primary:     map.get($palette-dark, deep-gray),
+  secondary:   map.get($palette-light, ghost-white),
+  accent:      #ff69b4, // Rosa fuerte para contraste
+  background:  map.get($palette-light, ghost-white),
+  text:        map.get($palette-dark, deep-gray),
+  border:      map.get($palette-light, ghost-white),
+  surface:     map.get($palette-light, ghost-white)
+);
+
+// Gray & Ghost White - Oscuro (inverso)
+$theme-gray-ghost-white-inverse: (
+  primary:     map.get($palette-light, ghost-white),
+  secondary:   map.get($palette-dark, deep-gray),
+  accent:      #ff69b4,
+  background:  map.get($palette-dark, deep-gray),
+  text:        map.get($palette-light, ghost-white),
+  border:      map.get($palette-dark, deep-gray),
+  surface:     map.get($palette-dark, deep-gray)
+);
+
+// Midnight & Calm Water - Claro
+$theme-midnight-calm: (
+  primary:     map.get($palette-dark, midnight-green),
+  secondary:   map.get($palette-light, calm-water),
+  accent:      #4dd0e1, // Celeste suave
+  background:  map.get($palette-light, calm-water),
+  text:        map.get($palette-dark, midnight-green),
+  border:      map.get($palette-light, calm-water),
+  surface:     map.get($palette-light, calm-water)
+);
+
+// Midnight & Calm Water - Oscuro
+$theme-midnight-calm-inverse: (
+  primary:     map.get($palette-light, calm-water),
+  secondary:   map.get($palette-dark, midnight-green),
+  accent:      #4dd0e1,
+  background:  map.get($palette-dark, midnight-green),
+  text:        map.get($palette-light, calm-water),
+  border:      map.get($palette-dark, midnight-green),
+  surface:     map.get($palette-dark, midnight-green)
+);
+
+// Gray & Ivory - Claro
+$theme-gray-ivory: (
+  primary:     map.get($palette-dark, deep-gray),
+  secondary:   map.get($palette-light, ivory-myst),
+  accent:      #c2185b, // Rosa oscuro
+  background:  map.get($palette-light, ivory-myst),
+  text:        map.get($palette-dark, deep-gray),
+  border:      map.get($palette-light, ivory-myst),
+  surface:     map.get($palette-light, ivory-myst)
+);
+
+// Gray & Ivory - Oscuro
+$theme-gray-ivory-inverse: (
+  primary:     map.get($palette-light, ivory-myst),
+  secondary:   map.get($palette-dark, deep-gray),
+  accent:      #c2185b,
+  background:  map.get($palette-dark, deep-gray),
+  text:        map.get($palette-light, ivory-myst),
+  border:      map.get($palette-dark, deep-gray),
+  surface:     map.get($palette-dark, deep-gray)
+);
+
+
+/*--------------------------
+  Mixin para crear tema CSS
+---------------------------*/
+@mixin generate-theme($name, $colors) {
+  .theme-#{$name} {
+    @each $key, $color in $colors {
+      --#{$key}: #{$color};
+    }
+  }
+}
+
+/*--------------------------------------
+  Generar las clases temáticas dinámicas
+---------------------------------------*/
+@include generate-theme(light, $theme-light-colors);
+@include generate-theme(dark, $theme-dark-colors);
+@include generate-theme(solarized-light, $theme-solarized-light);
+@include generate-theme(solarized-dark, $theme-solarized-dark);
+@include generate-theme(gray-ghost-white, $theme-gray-ghost-white);
+@include generate-theme(gray-ghost-white-inverse, $theme-gray-ghost-white-inverse);
+@include generate-theme(midnight-calm, $theme-midnight-calm);
+@include generate-theme(midnight-calm-inverse, $theme-midnight-calm-inverse);
+@include generate-theme(gray-ivory, $theme-gray-ivory);
+@include generate-theme(gray-ivory-inverse, $theme-gray-ivory-inverse);
+
+
+/*----------------------------------------------------------
+  Clases base para usar variables CSS en tu app
+  Estas clases usan las variables definidas y afectan la UI
+-----------------------------------------------------------*/
+.app-bg {
+  background-color: var(--background);
+  color-scheme: light dark;
+}
+
+.app-text {
+  color: var(--text);
+}
+
+.bg-primary {
+  background-color: var(--primary);
+}
+
+.text-primary {
+  color: var(--primary);
+}
+
+.bg-secondary {
+  background-color: var(--secondary);
+}
+
+.text-secondary {
+  color: var(--secondary);
+}
+
+.border-default {
+  border-color: var(--border);
+}
+
+.surface {
+  background-color: var(--surface);
+  border-color: var(--border);
+  color: var(--text);
+  /* Puedes añadir sombra, bordes redondeados, etc. */
+}
+
+/*----------------------------------------------------------
+  Opcional: Sobrescribir algunos estilos AdminLTE para que usen tus variables
+  - Ejemplo: barra de navegación, botones, encabezados, etc.
+  - Usa selectores específicos para evitar conflictos
+-----------------------------------------------------------*/
+
+/* Navbar ejemplo */
+.navbar {
+  background-color: var(--primary) !important;
+  color: var(--text) !important;
+}
+
+.navbar a, .navbar-brand {
+  color: var(--text) !important;
+}
+
+/* Botones */
+.btn-primary {
+  background-color: var(--primary) !important;
+  border-color: var(--primary) !important;
+  color: var(--surface) !important; /* Contraste con botón */
+}
+
+/* Encabezados */
+h1, h2, h3, h4, h5, h6 {
+  color: var(--text);
+}
+
+/* Formularios */
+.form-control {
+  background-color: var(--surface);
+  border-color: var(--border);
+  color: var(--text);
+}
+
+/* Otros ejemplos */
+/* Puedes agregar aquí más overrides de AdminLTE que necesites adaptar */
+
+/*----------------------------------------------------------
+  NOTAS:
+  - Importa este archivo en tu app.scss
+  - Cambia la clase del elemento raíz (<html> o <body>) para aplicar el tema:
+    Ejemplo en Vue: document.documentElement.className = 'theme-dark';
+  - Usa las clases utilitarias como .app-bg, .app-text, .bg-primary, etc.
+-----------------------------------------------------------*/
