@@ -1,8 +1,8 @@
 @use "sass:map";
 @use "sass:color";
 // Importa tus colores base desde su archivo correspondiente
-// @import '$colors-base'; 
-@use 'colors-base' as *; 
+// @import 'colors-base'; 
+@use 'colors-base' as cb; 
 
 
 // =============================================================================
@@ -21,98 +21,98 @@
 
 // --- 1. Paleta por Defecto (usada por light-dark() para el tema "Sistema") ---
 $default-light-palette: (
-  --color-bg: #{map.get($colors-base, "dr-white")},
-  --color-text: #{map.get($colors-base, "charcoal")},
-  --color-primary: #{map.get($colors-base, "new-heights")},
-  --color-secondary: #{map.get($colors-base, "platinum")},
-  --color-accent: #{map.get($colors-base, "space-cadet")},
-  --color-surface: #{map.get($colors-base, "dr-white")},
-  --color-border: color.adjust(map.get($colors-base, "charcoal"), $lightness: 60%),
-  --color-link: color.adjust(map.get($colors-base, "charcoal"), $lightness: -10%)
+  --color-bg: map.get(cb.$colors-base, "dr-white"),
+  --color-text: map.get(cb.$colors-base, "charcoal"),
+  --color-primary: map.get(cb.$colors-base, "new-heights"),
+  --color-secondary: map.get(cb.$colors-base, "platinum"),
+  --color-accent: map.get(cb.$colors-base, "space-cadet"),
+  --color-surface: map.get(cb.$colors-base, "dr-white"),
+  --color-border: color.adjust(map.get(cb.$colors-base, "charcoal"), $lightness: 60%),
+  --color-link: color.adjust(map.get(cb.$colors-base, "charcoal"), $lightness: -10%)
 );
 
 $default-dark-palette: (
-  --color-bg: #{map.get($colors-base, "liberty-blue")},
-  --color-text: #{map.get($colors-base, "dr-white")},
-  --color-primary: #{map.get($colors-base, "new-heights")},
-  --color-secondary: #{map.get($colors-base, "black-pearl")},
-  --color-accent: #{map.get($colors-base, "calm-water")},
-  --color-surface: #{map.get($colors-base, "black-pearl")},
-  --color-border: color.adjust(map.get($colors-base, "liberty-blue"), $lightness: 10%),
-  --color-link: color.adjust(map.get($colors-base, "new-heights"), $lightness: 10%)
+  --color-bg: map.get(cb.$colors-base, "liberty-blue"),
+  --color-text: map.get(cb.$colors-base, "dr-white"),
+  --color-primary: map.get(cb.$colors-base, "new-heights"),
+  --color-secondary: map.get(cb.$colors-base, "black-pearl"),
+  --color-accent: map.get(cb.$colors-base, "calm-water"),
+  --color-surface: map.get(cb.$colors-base, "black-pearl"),
+  --color-border: color.adjust(map.get(cb.$colors-base, "liberty-blue"), $lightness: 10%),
+  --color-link: color.adjust(map.get(cb.$colors-base, "new-heights"), $lightness: 10%)
 );
 
 // --- 2. Esquema Personalizado 1: "Serenidad Natural" ---
 // Versión CLARA de "Serenidad Natural"
 $serenity-natural-light-palette: (
-  --color-bg: #{map.get($colors-base, "distant-horizon")},      // Fondo claro con matiz azul suave
-  --color-text: #{map.get($colors-base, "midnight-green")},     // Texto verde muy oscuro
-  --color-primary: #{map.get($colors-base, "calm-water")},      // Azul verdoso brillante para acentos
-  --color-secondary: #{map.get($colors-base, "platinum")},      // Gris azulado claro para elementos secundarios
-  --color-accent: #{map.get($colors-base, "space-cadet")},      // Azul-verde más profundo para acentos sutiles
-  --color-surface: #{map.get($colors-base, "")},        // Superficies (tarjetas, paneles) claras
-  --color-border: color.adjust(map.get($colors-base, "midnight-green"), $lightness: 65%), // Borde claro que combina
-  --color-link: color.adjust(map.get($colors-base, "midnight-green"), $lightness: -10%)    // Enlace oscuro
+  --color-bg: map.get(cb.$colors-base, "distant-horizon"),      // Fondo claro con matiz azul suave
+  --color-text: map.get(cb.$colors-base, "midnight-green"),     // Texto verde muy oscuro
+  --color-primary: map.get(cb.$colors-base, "calm-water"),      // Azul verdoso brillante para acentos
+  --color-secondary: map.get(cb.$colors-base, "platinum"),      // Gris azulado claro para elementos secundarios
+  --color-accent: map.get(cb.$colors-base, "space-cadet"),      // Azul-verde más profundo para acentos sutiles
+  --color-surface: map.get(cb.$colors-base, "platinum"),        // Superficies (tarjetas, paneles) claras
+  --color-border: color.adjust(map.get(cb.$colors-base, "midnight-green"), $lightness: 65%), // Borde claro que combina
+  --color-link: color.adjust(map.get(cb.$colors-base, "midnight-green"), $lightness: -10%)    // Enlace oscuro
 );
 
 // Versión OSCURA de "Serenidad Natural"
 $serenity-natural-dark-palette: (
-  --color-bg: #{map.get($colors-base, "midnight-green")},      // Fondo verde muy oscuro
-  --color-text: #{map.get($colors-base, "distant-horizon")},    // Texto blanco suave para el contraste
-  --color-primary: #{map.get($colors-base, "calm-water")},      // Mismo azul verdoso, pero más brillante en oscuro
-  --color-secondary: #{map.get($colors-base, "deep-gray")},     // Gris oscuro para elementos secundarios
-  --color-accent: #{map.get($colors-base, "new-heights")},      // Un azul brillante para acentos en oscuro
-  --color-surface: #{map.get($colors-base, "deep-gray")},       // Superficies (tarjetas, paneles) oscuras
-  --color-border: color.adjust(map.get($colors-base, "midnight-green"), $lightness: 10%), // Borde más claro para contraste en oscuro
-  --color-link: color.adjust(map.get($colors-base, "calm-water"), $lightness: 10%)       // Enlace claro
+  --color-bg: map.get(cb.$colors-base, "midnight-green"),      // Fondo verde muy oscuro
+  --color-text: map.get(cb.$colors-base, "distant-horizon"),    // Texto blanco suave para el contraste
+  --color-primary: map.get(cb.$colors-base, "calm-water"),      // Mismo azul verdoso, pero más brillante en oscuro
+  --color-secondary: map.get(cb.$colors-base, "deep-gray"),     // Gris oscuro para elementos secundarios
+  --color-accent: map.get(cb.$colors-base, "new-heights"),      // Un azul brillante para acentos en oscuro
+  --color-surface: map.get(cb.$colors-base, "deep-gray"),       // Superficies (tarjetas, paneles) oscuras
+  --color-border: color.adjust(map.get(cb.$colors-base, "midnight-green"), $lightness: 10%), // Borde más claro para contraste en oscuro
+  --color-link: color.adjust(map.get(cb.$colors-base, "calm-water"), $lightness: 10%)       // Enlace claro
 );
 
 // --- 3. Esquema Personalizado: "Atardecer Cálido" ---
 // Versión CLARA de "Atardecer Cálido"
 $warm-dusk-light-palette: (
-  --color-bg: #{map.get($colors-base, "ivory-myst")},           // Fondo beige suave y acogedor
-  --color-text: #{map.get($colors-base, "black-plum")},         // Texto ciruela oscuro, legible y cálido
-  --color-primary: color.adjust(map.get($colors-base, "black-plum"), $lightness: 20%), // Un tono de ciruela más claro como acento
-  --color-secondary: #{map.get($colors-base, "ghost-white")},   // Blanco puro para superficies ligeras
-  --color-accent: #{map.get($colors-base, "charcoal")},         // Gris oscuro para acentos más fuertes
-  --color-surface: #{map.get($colors-base, "ghost-white")},     // Superficies (tarjetas, paneles) claras
-  --color-border: color.adjust(map.get($colors-base, "ivory-myst"), $lightness: -10%), // Borde que mantiene la calidez
-  --color-link: color.adjust(map.get($colors-base, "black-plum"), $lightness: -5%), // Enlace oscuro
+  --color-bg: map.get(cb.$colors-base, "ivory-myst"),           // Fondo beige suave y acogedor
+  --color-text: map.get(cb.$colors-base, "black-plum"),         // Texto ciruela oscuro, legible y cálido
+  --color-primary: color.adjust(map.get(cb.$colors-base, "black-plum"), $lightness: 20%), // Un tono de ciruela más claro como acento
+  --color-secondary: map.get(cb.$colors-base, "ghost-white"),   // Blanco puro para superficies ligeras
+  --color-accent: map.get(cb.$colors-base, "charcoal"),         // Gris oscuro para acentos más fuertes
+  --color-surface: map.get(cb.$colors-base, "ghost-white"),     // Superficies (tarjetas, paneles) claras
+  --color-border: color.adjust(map.get(cb.$colors-base, "ivory-myst"), $lightness: -10%), // Borde que mantiene la calidez
+  --color-link: color.adjust(map.get(cb.$colors-base, "black-plum"), $lightness: -5%), // Enlace oscuro
 );
 
 // Versión OSCURA de "Atardecer Cálido"
 $warm-dusk-dark-palette: (
-  --color-bg: #{map.get($colors-base, "black-plum")},           // Fondo ciruela oscuro
-  --color-text: #{map.get($colors-base, "ivory-myst")},         // Texto marfil para contraste
-  --color-primary: color.adjust(map.get($colors-base, "black-plum"), $lightness: 30%), // Un ciruela más luminoso como acento
-  --color-secondary: #{map.get($colors-base, "deep-gray")},     // Gris oscuro para elementos secundarios
-  --color-accent: #{map.get($colors-base, "platinum")},         // Un gris claro para acentos en oscuro
-  --color-surface: #{map.get($colors-base, "deep-gray")},       // Superficies (tarjetas, paneles) oscuras
-  --color-border: color.adjust(map.get($colors-base, "black-plum"), $lightness: 10%), // Borde más claro para contraste en oscuro
-  --color-link: color.adjust(map.get($colors-base, "ivory-myst"), $lightness: 5%), // Enlace claro
+  --color-bg: map.get(cb.$colors-base, "black-plum"),           // Fondo ciruela oscuro
+  --color-text: map.get(cb.$colors-base, "ivory-myst"),         // Texto marfil para contraste
+  --color-primary: color.adjust(map.get(cb.$colors-base, "black-plum"), $lightness: 30%), // Un ciruela más luminoso como acento
+  --color-secondary: map.get(cb.$colors-base, "deep-gray"),     // Gris oscuro para elementos secundarios
+  --color-accent: map.get(cb.$colors-base, "platinum"),         // Un gris claro para acentos en oscuro
+  --color-surface: map.get(cb.$colors-base, "deep-gray"),       // Superficies (tarjetas, paneles) oscuras
+  --color-border: color.adjust(map.get(cb.$colors-base, "black-plum"), $lightness: 10%), // Borde más claro para contraste en oscuro
+  --color-link: color.adjust(map.get(cb.$colors-base, "ivory-myst"), $lightness: 5%), // Enlace claro
 );
 
 // --- 4. Esquema Personalizado: "Espacio Profundo" ---
 // Versión CLARA de "Espacio Profundo"
 $deep-space-light-palette: (
-  --color-bg: #{map.get($colors-base, "platinum")},             // Fondo gris azulado claro, más industrial
-  --color-text: #{map.get($colors-base, "black-stallion")},     // El color más oscuro para texto principal
-  --color-primary: #{map.get($colors-base, "charcoal")},        // Azul-gris oscuro, sólido para acentos
-  --color-secondary: #{map.get($colors-base, "ghost-white")},   // Blanco neutro para superficies secundarias
-  --color-accent: #{map.get($colors-base, "new-heights")},      // Un azul vibrante para acentos
-  --color-surface: #{map.get($colors-base, "ghost-white")},     // Superficies (tarjetas, paneles) claras
-  --color-border: color.adjust(map.get($colors-base, "platinum"), $lightness: -10%), // Borde oscuro que combina
-  --color-link: color.adjust(map.get($colors-base, "black-stallion"), $lightness: 20%), // Enlace que resalta
+  --color-bg: map.get(cb.$colors-base, "platinum"),             // Fondo gris azulado claro, más industrial
+  --color-text: map.get(cb.$colors-base, "black-stallion"),     // El color más oscuro para texto principal
+  --color-primary: map.get(cb.$colors-base, "charcoal"),        // Azul-gris oscuro, sólido para acentos
+  --color-secondary: map.get(cb.$colors-base, "ghost-white"),   // Blanco neutro para superficies secundarias
+  --color-accent: map.get(cb.$colors-base, "new-heights"),      // Un azul vibrante para acentos
+  --color-surface: map.get(cb.$colors-base, "ghost-white"),     // Superficies (tarjetas, paneles) claras
+  --color-border: color.adjust(map.get(cb.$colors-base, "platinum"), $lightness: -10%), // Borde oscuro que combina
+  --color-link: color.adjust(map.get(cb.$colors-base, "black-stallion"), $lightness: 20%), // Enlace que resalta
 );
 
 // Versión OSCURA de "Espacio Profundo"
 $deep-space-dark-palette: (
-  --color-bg: #{map.get($colors-base, "black-stallion")},       // El más oscuro como fondo
-  --color-text: #{map.get($colors-base, "platinum")},           // Texto gris azulado claro para contraste
-  --color-primary: #{map.get($colors-base, "charcoal")},        // El mismo acento oscuro, funciona bien como botón resaltado
-  --color-secondary: #{map.get($colors-base, "liberty-blue")},  // Un azul muy oscuro para superficies secundarias
-  --color-accent: #{map.get($colors-base, "calm-water")},       // Un azul verdoso claro para acentos en oscuro
-  --color-surface: #{map.get($colors-base, "liberty-blue")},    // Superficies (tarjetas, paneles) oscuras
-  --color-border: color.adjust(map.get($colors-base, "black-stallion"), $lightness: 5%), // Borde más claro para contraste en oscuro
-  --color-link: color.adjust(map.get($colors-base, "platinum"), $lightness: 10%), // Enlace claro
+  --color-bg: map.get(cb.$colors-base, "black-stallion"),       // El más oscuro como fondo
+  --color-text: map.get(cb.$colors-base, "platinum"),           // Texto gris azulado claro para contraste
+  --color-primary: map.get(cb.$colors-base, "charcoal"),        // El mismo acento oscuro, funciona bien como botón resaltado
+  --color-secondary: map.get(cb.$colors-base, "liberty-blue"),  // Un azul muy oscuro para superficies secundarias
+  --color-accent: map.get(cb.$colors-base, "calm-water"),       // Un azul verdoso claro para acentos en oscuro
+  --color-surface: map.get(cb.$colors-base, "liberty-blue"),    // Superficies (tarjetas, paneles) oscuras
+  --color-border: color.adjust(map.get(cb.$colors-base, "black-stallion"), $lightness: 5%), // Borde más claro para contraste en oscuro
+  --color-link: color.adjust(map.get(cb.$colors-base, "platinum"), $lightness: 10%), // Enlace claro
 );
